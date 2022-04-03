@@ -33,19 +33,13 @@ public class Generation {
                 .statusCode(200);
     }
 
-    public static Registration generateNewActiveValidUser() {
+    public static Registration generateNewActiveUser(String status) {
         String login = faker.name().firstName().toLowerCase();
         String password = faker.internet().password();
-        makeRegistration(new Registration(login, password, "active"));
-        return new Registration(login, password, "active");
+        makeRegistration(new Registration(login, password, status));
+        return new Registration(login, password, status);
     }
 
-    public static Registration generateNewBlockedUser() {
-        String login = faker.name().firstName().toLowerCase();
-        String password = faker.internet().password();
-        makeRegistration(new Registration(login, password, "blocked"));
-        return new Registration(login, password, "blocked");
-    }
 
     public static Registration generateNewActiveUserInvalidLogin() {
         String password = faker.internet().password();
